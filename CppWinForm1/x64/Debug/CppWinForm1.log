@@ -1,0 +1,17 @@
+﻿Build started 11.04.2016 23:05:18.
+     1>Project "F:\Git Projects\Lab7_Graphics\CppWinForm1\CppWinForm1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         F:\VS 2013\VC\bin\x86_amd64\CL.exe /c /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /Zi /clr /nologo /W3 /WX- /Od /D _DEBUG /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.Xml.dll" /errorReport:prompt /clr:nostdlib MyForm.cpp
+         MyForm.cpp
+         F:\VS 2013\VC\bin\x86_amd64\CL.exe /c /Zi /clr /nologo /W3 /WX- /Od /D _DEBUG /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /TP /errorReport:prompt "C:\Users\Admin\AppData\Local\Temp\.NETFramework,Version=v4.0.AssemblyAttributes.cpp"
+         .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1190,5): warning MSB8030: The linker switch "Minimum Required Version" requires "SubSystem" to be set.  Without "SubSystem", the "Minimum Required Version" would not be passed to linker and could prevent to the output binary from running on older Operating Systems.
+       Link:
+         F:\VS 2013\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Git Projects\Lab7_Graphics\x64\Debug\CppWinForm1.exe" /INCREMENTAL /NOLOGO /ASSEMBLYRESOURCE:x64\Debug\CppWinForm1.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Git Projects\Lab7_Graphics\x64\Debug\CppWinForm1.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X64 x64\Debug\MyForm.obj
+         "x64\Debug\.NETFramework,Version=v4.0.AssemblyAttributes.obj"
+     1>LINK : fatal error LNK1561: entry point must be defined
+     1>Done Building Project "F:\Git Projects\Lab7_Graphics\CppWinForm1\CppWinForm1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:10.50

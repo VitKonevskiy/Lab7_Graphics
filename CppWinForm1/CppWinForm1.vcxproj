@@ -43,7 +43,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v120_xp</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -142,7 +142,11 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TChart.h" />
     <ClInclude Include="TCircle.h" />
+    <ClInclude Include="TGroup.h" />
+    <ClInclude Include="TLine.h" />
+    <ClInclude Include="TList_and_Tlink.h" />
     <ClInclude Include="TObject.h" />
     <ClInclude Include="TPoint.h" />
   </ItemGroup>

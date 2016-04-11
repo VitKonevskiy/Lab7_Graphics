@@ -3,6 +3,7 @@
 #include "TObject.h"
 #include "TCircle.h"
 #include "TPoint.h"
+#include "TLine.h"
 
 namespace CppWinForm1 {
 
@@ -20,9 +21,12 @@ namespace CppWinForm1 {
 	{
 	public:
 		//Graphics^ g;
+		int x;					//Запоминаем координаты
+		int y;
 		MyForm(void)
 		{
 			InitializeComponent();
+			g = this->CreateGraphics();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -44,6 +48,11 @@ namespace CppWinForm1 {
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::CheckedListBox^  checkedListBox1;
+	private: Graphics^ g;
+	
+
+
 	protected:
 
 	private:
@@ -64,6 +73,7 @@ namespace CppWinForm1 {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->checkedListBox1 = (gcnew System::Windows::Forms::CheckedListBox());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -72,7 +82,7 @@ namespace CppWinForm1 {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 0;
-			this->button1->Text = L"OK";
+			this->button1->Text = L"Draw";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
@@ -112,11 +122,21 @@ namespace CppWinForm1 {
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"y:";
 			// 
+			// checkedListBox1
+			// 
+			this->checkedListBox1->FormattingEnabled = true;
+			this->checkedListBox1->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Point", L"Circle", L"Line" });
+			this->checkedListBox1->Location = System::Drawing::Point(640, 7);
+			this->checkedListBox1->Name = L"checkedListBox1";
+			this->checkedListBox1->Size = System::Drawing::Size(120, 94);
+			this->checkedListBox1->TabIndex = 6;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(518, 390);
+			this->ClientSize = System::Drawing::Size(772, 448);
+			this->Controls->Add(this->checkedListBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox2);
@@ -124,25 +144,54 @@ namespace CppWinForm1 {
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::MyForm_MouseDown);
+			this->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::MyForm_MouseUp);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) 
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e)
 	{
-		Graphics^ g;
-		g = this->CreateGraphics();
+	//	Graphics^ g;
+	//	g = this->CreateGraphics();
 		int x = Convert::ToInt32(textBox1->Text);
 		int y = Convert::ToInt32(textBox2->Text);
-		
-		//TPoint Point(x, y);
-		//Point.Draw(g);
+
+		TPoint Point(x, y);
+		Point.Draw(g);
 
 		//TCircle Circle(x, y, 10);
 		//Circle.Draw(g);
 
 
 	}
+
+	private: System::Void MyForm_MouseDown(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	//	Graphics^ g;
+	//	g = this->CreateGraphics();
+		if (this->checkedListBox1->GetSelected(0))
+		{
+			TPoint Point(e->X, e->Y);
+			Point.Draw(g);
+		}
+		if (this->checkedListBox1->GetSelected(1))
+		{
+			TCircle Circle(e->X, e->Y,5);
+			Circle.Draw(g);
+		}
+		if (this->checkedListBox1->GetSelected(2))
+		{
+			x = e->X;
+			y = e->Y;
+		}
+	}
+private: System::Void MyForm_MouseUp(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+	if (this->checkedListBox1->GetSelected(2))
+	{
+		TLine Line(x, y, e->X, e->Y);
+		Line.Draw(g);
+	}
+}
 };
 }
